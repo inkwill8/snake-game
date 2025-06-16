@@ -15,12 +15,16 @@ ctx.fillRect(250, 250, 10, 10);
 function generateCoordinate() {
 
     let random = Math.floor((Math.random() * 500) + 10);
-    console.log(random);
+    
+       while (random > 490) {
+           random = Math.floor((Math.random() * 500) + 10);
+       }
 
+    return random;
 };
 
 ctx.fillStyle = 'black';
-ctx.fillRect(posX, posY, 10, 10);
+ctx.fillRect(generateCoordinate(), generateCoordinate(), 10, 10);
 
 // Make the snake move
 // Add bit to snake after 'eaten'
