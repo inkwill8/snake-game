@@ -41,8 +41,13 @@ ctx.fillRect(generateCoordinate(), generateCoordinate(), randomBit.width, random
 
 // Make the snake move
 function constantSnakeMovement() {
-    
+    while (snake.y > 0) {
+   snake.y = snake.y - 20; 
+    constantSnakeMovement();
+    }
 };
+
+constantSnakeMovement();
 
 // Add bit to snake after 'eaten'
 // Increase speed of snake after bit is eaten
