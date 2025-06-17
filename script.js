@@ -5,9 +5,17 @@ const ctx = canvas.getContext('2d');
 canvas.height = 500;
 canvas.width = 500;
 
-// Place head of snake at starting position
-ctx.fillStyle = 'purple';
-ctx.fillRect(250, 250, 10, 10);
+// SNAKE OBJECT
+const snake = {
+    x: 250,
+    y: 250,
+    width: 10,
+    height: 10,
+    color: 'purple'
+};
+
+ctx.fillStyle = snake.color;
+ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
 
 // Generate a 'bit'
 function generateCoordinate() {
@@ -22,8 +30,14 @@ function generateCoordinate() {
 };
 
 // Context for bit rendering on canvas
-ctx.fillStyle = 'black';
-ctx.fillRect(generateCoordinate(), generateCoordinate(), 10, 10);
+const randomBit = {
+    width: 10,
+    height: 10,
+    color: 'black'
+};
+
+ctx.fillStyle = randomBit.color;
+ctx.fillRect(generateCoordinate(), generateCoordinate(), randomBit.width, randomBit.height);
 
 // Make the snake move
 function constantSnakeMovement() {
