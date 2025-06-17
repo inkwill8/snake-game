@@ -35,11 +35,10 @@ const randomBit = {
 
 // Generate the snake on the canvas
 function drawSnake() {
-    while (snake.y > 0) {
+    snake.y > 0 
     ctx.fillStyle = snake.color;
     ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
     snake.y = snake.y - 20; 
-    }
 };
 
 // Generate a bit of food on the canvas
@@ -48,7 +47,7 @@ function drawBit() {
     ctx.fillRect(generateCoordinate(), generateCoordinate(), randomBit.width, randomBit.height);
 };
 
-drawSnake();
+setInterval(drawSnake, 1000);
 drawBit();
 
 // Add bit to snake after 'eaten'. Basically, if the coordinates of snake head and random bit after =, add to height of snake
