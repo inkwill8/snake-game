@@ -14,10 +14,7 @@ const snake = {
     color: 'purple'
 };
 
-ctx.fillStyle = snake.color;
-ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
-
-// Generate a 'bit'
+// Generate a random bit location
 function generateCoordinate() {
 
     let random = Math.floor((Math.random() * 500) + 10);
@@ -36,18 +33,21 @@ const randomBit = {
     color: 'black'
 };
 
-ctx.fillStyle = randomBit.color;
-ctx.fillRect(generateCoordinate(), generateCoordinate(), randomBit.width, randomBit.height);
-
-// Make the snake move
-function constantSnakeMovement() {
-    while (snake.y > 0) {
-   snake.y = snake.y - 20; 
-    constantSnakeMovement();
-    }
+// Generate the snake on the canvas
+function drawSnake() {
+    ctx.fillStyle = snake.color;
+    ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+    snake.y = snake.y - 20; 
 };
 
-constantSnakeMovement();
+// Generate a bit of food on the canvas
+function drawBit() {
+    ctx.fillStyle = randomBit.color;
+    ctx.fillRect(generateCoordinate(), generateCoordinate(), randomBit.width, randomBit.height);
+};
+
+drawSnake();
+drawBit();
 
 // Add bit to snake after 'eaten'
 // Increase speed of snake after bit is eaten
