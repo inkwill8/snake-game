@@ -34,11 +34,12 @@ const randomBit = {
 };
 
 // Generate the snake on the canvas
-const interval = setInterval(drawSnake, 1000);
+const interval = setInterval(drawSnake, 500);
 function drawSnake() {
+    ctx.clearRect(snake.x, snake.y, snake.width, snake.height);
+    snake.y = snake.y - 20; 
     ctx.fillStyle = snake.color;
     ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
-    snake.y = snake.y - 20; 
     console.log(snake.y);
     endSnakeDraw();
 };
