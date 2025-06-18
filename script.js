@@ -53,6 +53,13 @@ function endSnakeDraw() {
 
 // Snake Movement Functions
 function moveUp(e) {
+    if (e.code === 'ArrowUp' ||
+        e.code === 'KeyW' ||
+        e.code === 'KeyK' ) {
+        snake.y -= 10;
+        ctx.fillStyle = snake.color;
+        ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+    }
 };
 
 function moveRight(e) {
@@ -65,11 +72,25 @@ function moveRight(e) {
     }
 };
 
-function moveDown() {
+function moveDown(e) {
+    if (e.code === 'ArrowDown' ||
+        e.code === 'KeyS' ||
+        e.code === 'KeyJ' ) {
+        snake.y += 10;
+        ctx.fillStyle = snake.color;
+        ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+    }
 
 };
 
-function moveLeft() {
+function moveLeft(e) {
+    if (e.code === 'ArrowLeft' ||
+        e.code === 'KeyA' ||
+        e.code === 'KeyH' ) {
+        snake.x -= 10;
+        ctx.fillStyle = snake.color;
+        ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+    }
 };
 
 // Generate a bit of food on the canvas
