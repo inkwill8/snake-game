@@ -16,6 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #F0EAD6;
 }
 
 h1 {
