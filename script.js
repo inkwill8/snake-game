@@ -52,13 +52,21 @@ function endSnakeDraw() {
 };
 
 // Snake Movement Functions
-function moveUp() {
+function moveUp(e) {
 };
 
-function moveRight() {
+function moveRight(e) {
+    if (e.code === 'ArrowRight' ||
+        e.code === 'KeyD' ||
+        e.code === 'KeyL' ) {
+        snake.x += 10;
+        ctx.fillStyle = snake.color;
+        ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+    }
 };
 
 function moveDown() {
+
 };
 
 function moveLeft() {
