@@ -40,7 +40,7 @@ function drawSnake() {
     snake.y = snake.y - 20; 
     ctx.fillStyle = snake.color;
     ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
-    console.log(snake.y);
+    console.log(snake.x, snake.y);
     endSnakeDraw();
 };
 
@@ -51,6 +51,18 @@ function endSnakeDraw() {
     }
 };
 
+// Snake Movement Functions
+function moveUp() {
+};
+
+function moveRight() {
+};
+
+function moveDown() {
+};
+
+function moveLeft() {
+};
 
 // Generate a bit of food on the canvas
 function drawBit() {
@@ -60,6 +72,11 @@ function drawBit() {
 
 drawBit();
 
+// EVENT LISTENERS
+document.addEventListener('keydown', moveUp);
+document.addEventListener('keydown', moveRight);
+document.addEventListener('keydown', moveDown);
+document.addEventListener('keydown', moveLeft);
 // Add bit to snake after 'eaten'. Basically, if the coordinates of snake head and random bit after =, add to height of snake
 // Increase speed of snake after bit is eaten
 // Increment counter
