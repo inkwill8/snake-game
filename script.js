@@ -28,6 +28,8 @@ function generateCoordinate() {
 
 // Context for bit rendering on canvas
 const randomBit = {
+    x: generateCoordinate(),
+    y: generateCoordinate(),
     width: 10,
     height: 10,
     color: 'black'
@@ -51,7 +53,7 @@ function endSnakeDraw() {
     }
 };
 
-// Snake Movement Functions
+// Snake Control Functions
 function moveUp(e) {
     if (e.code === 'ArrowUp' ||
         e.code === 'KeyW' ||
@@ -100,7 +102,7 @@ function moveLeft(e) {
 // Generate a bit of food on the canvas
 function drawBit() {
     ctx.fillStyle = randomBit.color;
-    ctx.fillRect(generateCoordinate(), generateCoordinate(), randomBit.width, randomBit.height);
+    ctx.fillRect(randomBit.x, randomBit.y, randomBit.width, randomBit.height);
 };
 
 drawBit();
@@ -110,7 +112,18 @@ document.addEventListener('keydown', moveUp);
 document.addEventListener('keydown', moveRight);
 document.addEventListener('keydown', moveDown);
 document.addEventListener('keydown', moveLeft);
+
 // Add bit to snake after 'eaten'. Basically, if the coordinates of snake head and random bit after =, add to height of snake
+function addBitToSnake() {
+    if (snake.x === randomBit.x &&
+        snake.y === randomBit.y) {
+        snake.height += 10;
+        ctx.fillStyle = snake.color;
+        ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+    }
+};
+
+addBitToSnake();
 // Increase speed of snake after bit is eaten
 // Increment counter
 // End game if border is hit or snake touches itself
