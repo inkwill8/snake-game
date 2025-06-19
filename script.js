@@ -36,7 +36,7 @@ const randomBit = {
 };
 
 // Generate the snake on the canvas
-const interval = setInterval(drawSnake, 500);
+const drawSnakeInterval = setInterval(drawSnake, 500);
 function drawSnake() {
     ctx.clearRect(snake.x, snake.y, snake.width, snake.height);
     snake.y = snake.y - 20; 
@@ -49,7 +49,7 @@ function drawSnake() {
 // Stop drawing snake
 function endSnakeDraw() {
     if (snake.y <= 0) {
-    clearInterval(interval);
+    clearInterval(drawSnakeInterval);
     }
 };
 
@@ -114,6 +114,7 @@ document.addEventListener('keydown', moveDown);
 document.addEventListener('keydown', moveLeft);
 
 // Add bit to snake after 'eaten'. Basically, if the coordinates of snake head and random bit after =, add to height of snake
+const addBitToSnakeInterval = setInterval(addBitToSnake, 500);
 function addBitToSnake() {
     if (snake.x === randomBit.x &&
         snake.y === randomBit.y) {
@@ -123,7 +124,8 @@ function addBitToSnake() {
     }
 };
 
-addBitToSnake();
+
+
 // Increase speed of snake after bit is eaten
 // Increment counter
 // End game if border is hit or snake touches itself
