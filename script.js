@@ -19,7 +19,7 @@ function generateCoordinate() {
 
     let random = Math.floor((Math.random() * 500) + 10);
     
-       while (random > 490) {
+       while (random > 490 || random % 10 !== 0) {
            random = Math.floor((Math.random() * 500) + 10);
        }
 
@@ -42,7 +42,7 @@ function drawSnake() {
     snake.y = snake.y - 20; 
     ctx.fillStyle = snake.color;
     ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
-    console.log(snake.x, snake.y);
+//    console.log(snake.x, snake.y);
     endSnakeDraw();
 };
 
@@ -103,6 +103,7 @@ function moveLeft(e) {
 function drawBit() {
     ctx.fillStyle = randomBit.color;
     ctx.fillRect(randomBit.x, randomBit.y, randomBit.width, randomBit.height);
+	console.log(randomBit);
 };
 
 drawBit();
