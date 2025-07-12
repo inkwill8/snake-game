@@ -20,11 +20,13 @@ const snakeBody = [];
 // Add bit to snake after 'eaten'. If coordinates of snake head and bit equal, add to length of snake 
 const addBitToSnakeInterval = setInterval(addBitToSnake, 100);
 function addBitToSnake() {
+	let snakeHead = [snake.x, snake.y];	
     if (snake.x === randomBit.x &&
         snake.y === randomBit.y) {
         snake.height += 10;
         ctx.fillStyle = snake.color;
         ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+	snakeBody.push(snakeHead);
 	console.log(snakeBody);
     }
 };
