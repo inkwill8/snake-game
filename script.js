@@ -17,14 +17,15 @@ const snake = {
 // Create an array for snake body. Values should be pushed into this as snake eats bits
 const snakeBody = [];
 
-// Add bit to snake after 'eaten'. Basically, if the coordinates of snake head and random bit after =, add to height of snake
-const addBitToSnakeInterval = setInterval(addBitToSnake, 500);
+// Add bit to snake after 'eaten'. If coordinates of snake head and bit equal, add to length of snake 
+const addBitToSnakeInterval = setInterval(addBitToSnake, 100);
 function addBitToSnake() {
     if (snake.x === randomBit.x &&
         snake.y === randomBit.y) {
-        snake.width+= 10;
+        snake.height += 10;
         ctx.fillStyle = snake.color;
         ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
+	console.log(snakeBody);
     }
 };
 
@@ -122,9 +123,7 @@ function drawBit() {
 drawBit();
 
 
-// Increase speed of snake after bit is eaten
 // Increment counter
-// End game if border is hit or snake touches itself
 // EVENT LISTENERS
 document.addEventListener('keydown', moveUp);
 document.addEventListener('keydown', moveRight);
